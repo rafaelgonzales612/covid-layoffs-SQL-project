@@ -89,7 +89,7 @@ WITH Company_Year (company, years, total_laid_off) AS
 SELECT company, YEAR(`date`), SUM(total_laid_off)
 FROM world_layoffs.layoffs_staging2
 GROUP BY company, YEAR(`date`)
-), Company_Year_Rank AS
+), Company_Year_Rank AS -- created a 2nd CTE to rank the data from the 1st CTE
 (
 SELECT *, DENSE_RANK() OVER (PARTITION BY years ORDER BY total_laid_off DESC) AS Ranking
 FROM Company_Year
