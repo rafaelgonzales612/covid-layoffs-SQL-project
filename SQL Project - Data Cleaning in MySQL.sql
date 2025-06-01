@@ -9,7 +9,7 @@ FROM world_layoffs.layoffs;
 CREATE TABLE world_layoffs.layoffs_staging
 LIKE world_layoffs.layoffs;
 
-INSERT layoffs_staging
+INSERT world_layoffs.layoffs_staging
 SELECT *
 FROM world_layoffs.layoffs;
 
